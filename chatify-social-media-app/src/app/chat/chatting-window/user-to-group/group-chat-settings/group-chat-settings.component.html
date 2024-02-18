@@ -1,0 +1,92 @@
+<div
+  class="modal-wrapper"
+  [ngClass]="{ phoneOrTablet: (isPhoneOrTablet$ | async) }"
+>
+  <main #main [@scale-animation] *ngIf="group">
+    <i class="fa-solid fa-xmark" (click)="closeSettings()"></i>
+    <div class="group-image">
+      <img
+        src="../../../../../assets/img/uploads/groupPictures/{{
+          group.group_image_src
+        }}"
+        [alt]="group.group_name"
+      />
+    </div>
+    <p class="g-name">{{ group.group_name }}</p>
+    <div class="edit">
+      <p class="grey">
+        Created on {{ group.creation_date | date : "MMM d, y" }}
+      </p>
+      <button
+        *ngIf="groupUser.group_role_id === 1 || groupUser.group_role_id === 2"
+        class="button"
+        (click)="editGroup()"
+      >
+        Edit
+      </button>
+    </div>
+    <p class="g-desc" style="white-space: pre-wrap">
+      {{ group.description }}
+    </p>
+    <div class="add-new">
+      <p class="countMem">Members: {{ members.length }}</p>
+      <button
+        class="button"
+        (click)="addNewMembers()"
+        *ngIf="groupUser.group_role_id === 1 || groupUser.group_role_id === 2"
+      >
+        Add
+      </button>
+    </div>
+    <div class="members">
+      <div class="member" *ngFor="let member of members; let i = index">
+        <div class="member-image" (click)="showProfile(member.user_id)">
+          <img
+            src="../../../../../assets/img/uploads/userPictures/{{
+              member.profile_picture_src
+            }}"
+            [alt]="member.username"
+          />
+        </div>
+        <div class="member-name">
+          <p>
+            {{ member.full_name }} ({{ member.name }})
+            <span *ngIf="member.username === me" class="green"> You</span>
+          </p>
+          <p>{{ member.username.substring(1) }}</p>
+          <p class="grey">Joined {{ member.join_date | date : "MMM d, y" }}</p>
+        </div>
+        <div class="btn" *ngIf="groupUser.group_role_id === 1">
+          <button
+            *ngIf="member.username !== me"
+            class="button"
+            (click)="openUserOptions(i)"
+          >
+            Edit
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<div class="backdrop" (click)="closeSettings()"></div>
+<ng-container *ngIf="editGroupComponent">
+  <app-edit-group-info
+    (closeEditEmitter)="closeAllModals($event)"
+    [groupInfo]="group"
+  ></app-edit-group-info>
+</ng-container>
+<ng-container *ngIf="addNewMembersComponent">
+  <app-add-friends
+    (closeAddingModalEmitter)="closeAllModals($event)"
+    [groupId]="groupId"
+  ></app-add-friends>
+</ng-container>
+<ng-container *ngIf="userOptionsComponent">
+  <app-user-options
+    [user]="userEdit"
+    [groupId]="groupId"
+    (closeOptions)="closeAllModals($event)"
+    (closeAndSplice)="removeMember($event)"
+  ></app-user-options>
+</ng-container>

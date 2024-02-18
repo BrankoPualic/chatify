@@ -1,0 +1,91 @@
+<section id="form" [ngClass]="{ phoneOrTablet: (isPhoneOrTablet$ | async) }">
+  <h2>Sign up</h2>
+  <form [formGroup]="signup" (ngSubmit)="onSignupSubmit()">
+    <div>
+      <label>Full name</label>
+      <input type="text" name="fullName" formControlName="fullName" />
+      <p
+        class="error"
+        *ngIf="
+          !signup.get('fullName')?.valid && signup.get('fullName')?.touched
+        "
+      >
+        Please insert full name. Exemple Branko Pualic.
+      </p>
+    </div>
+    <div>
+      <label>Username</label>
+      <input type="text" name="username" formControlName="username" />
+      <p
+        class="error"
+        *ngIf="
+          !signup.get('username')?.valid && signup.get('username')?.touched
+        "
+      >
+        Please insert username.
+      </p>
+    </div>
+    <div>
+      <label>Email address</label>
+      <input type="email" name="email" formControlName="email" />
+      <p
+        class="error"
+        *ngIf="!signup.get('email')?.valid && signup.get('email')?.touched"
+      >
+        Your email is invalid! Please use the full email format. For example:
+        test@test.com
+      </p>
+    </div>
+    <div>
+      <label>Password</label>
+      <input type="password" name="pass" formControlName="password" />
+      <p
+        class="error"
+        *ngIf="
+          !signup.get('password')?.valid && signup.get('password')?.touched
+        "
+      >
+        Your password is invalid! Password must be at least 8 charactes long and
+        needs to have at least one uppercase letter and one number.
+      </p>
+    </div>
+    <div class="list">
+      <div>
+        <label>Select your region</label>
+        <select
+          name="region"
+          formControlName="region"
+          #reg
+          (change)="onRegionSelected(reg.value)"
+        >
+          <option value="0">Select</option>
+          <option [value]="region.continent_id" *ngFor="let region of regions">
+            {{ region.continent_name }}
+          </option>
+        </select>
+      </div>
+      <div [ngClass]="{ 'select-disabled': !regionSelected }">
+        <label>Select your country</label>
+        <select name="country" formControlName="country">
+          <option
+            [value]="country.country_id"
+            *ngFor="let country of countries"
+          >
+            {{ country.country_name }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <input
+      type="submit"
+      value="Sign up"
+      class="button"
+      [disabled]="!signup.valid"
+    />
+    <span #signupError class="error"></span>
+  </form>
+  <p>
+    Already have an account?
+    <a (click)="openSignin()">Sign in.</a>
+  </p>
+</section>

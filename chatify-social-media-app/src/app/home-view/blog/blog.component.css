@@ -1,0 +1,94 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.post {
+  width: 475px;
+  border-bottom: 1px solid var(--border-light);
+  padding: 2rem 0 1rem;
+  margin: 0;
+  background-color: #fff;
+}
+.user {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  align-items: center;
+  padding: 0.5rem;
+}
+.user-image {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+.user-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.username {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+.image {
+  width: 100%;
+  height: 450px;
+  background-color: #000;
+}
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.post-like {
+  padding: 0.5rem;
+}
+.icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.icon i {
+  font-size: 1.3em;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+.icon i:nth-child(2) {
+  margin-right: 0.5rem;
+}
+.post-like span,
+.post-like > p {
+  font-weight: 700;
+  font-size: 0.95em;
+}
+.post-like > p {
+  padding: 0.25rem 0 0;
+}
+
+.post-info {
+  padding: 0 0.5rem 0.5rem;
+}
+.time {
+  color: grey;
+}
+.post-info p:nth-child(2) {
+  margin: 0.25rem 0;
+}
+.post-info a {
+  color: var(--turquoise);
+  cursor: pointer;
+}
+
+/* Responsive */
+
+main.phonePortrait .post {
+  width: 100%;
+}

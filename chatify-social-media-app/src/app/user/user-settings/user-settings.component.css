@@ -1,0 +1,34 @@
+.modal-wrapper {
+  width: 400px;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+  background-color: #fff;
+}
+main > p {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid var(--border-light);
+  padding: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: clamp(0.9em, 3vw, 1em);
+}
+main > p:hover {
+  background-color: var(--light-grey);
+}
+main > p > i {
+  font-size: 1.2em;
+  margin-right: 0.75rem;
+  width: 20px;
+  text-align: center;
+}
+
+/* Responsive */
+.modal-wrapper.phoneOrTablet {
+  width: 95%;
+}

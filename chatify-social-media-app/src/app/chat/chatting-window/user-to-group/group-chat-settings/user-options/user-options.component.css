@@ -1,0 +1,93 @@
+.modal-wrapper {
+  width: 700px;
+}
+main {
+  border-radius: 5px;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: flex-start;
+  background-color: #fff;
+  height: auto;
+  width: 100%;
+}
+
+.go-back {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+  cursor: pointer;
+}
+
+.selected-user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.selected-image {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+.selected-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.selected-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.selected-name p:nth-child(1) {
+  font-size: 1.05em;
+  margin-bottom: 0.75rem;
+}
+
+.selected-user-options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 1.2rem;
+}
+.user-role select {
+  width: 200px;
+  padding: 0.25rem;
+  cursor: pointer;
+}
+.remove-member {
+  margin-left: 1.5rem;
+}
+
+.remove-member button {
+  background-color: red !important;
+  width: 200px;
+  font-size: 1em;
+}
+
+/* Responsive */
+.modal-wrapper.phoneOrTablet {
+  width: 95%;
+}
+
+.modal-wrapper.phoneOrTablet main {
+  padding: 4rem 1rem;
+  align-items: center;
+}
+
+.modal-wrapper.phoneOrTablet main .selected-user-options {
+  flex-direction: column;
+}
+.modal-wrapper.phoneOrTablet main .remove-member {
+  margin: 1rem 0 0;
+}

@@ -1,0 +1,49 @@
+<header
+  [ngClass]="{
+    phoneOrTablet: (isPhoneOrTablet$ | async),
+    otherThanHome: isOtherThanHome && (isPhoneOrTablet$ | async)
+  }"
+>
+  <div id="logo" routerLink="/" style="cursor: pointer">
+    <img src="../../assets/img/logo.png" alt="Chatify app logo." />
+    <h1>Chatify</h1>
+  </div>
+  <ng-container *ngIf="isSignedin">
+    <div class="interactive">
+      <i class="fa-solid fa-magnifying-glass" (click)="openSearchBar()"></i>
+      <i
+        class="fa-solid fa-house"
+        routerLink="/home"
+        routerLinkActive="active"
+      ></i>
+      <i
+        class="fa-regular fa-comment-dots"
+        routerLinkActive="active"
+        routerLink="/chat"
+      ></i>
+      <div id="notify" (click)="showNotifications()">
+        <i class="fa-regular fa-bell"></i>
+        <span id="notification-num" *ngIf="notification_num">{{
+          notification_num
+        }}</span>
+      </div>
+      <i
+        class="fa-regular fa-user"
+        [routerLink]="['/profile', userId]"
+        routerLinkActive="active"
+      ></i>
+      <i class="fa-solid fa-arrow-right-from-bracket" (click)="signout()"></i>
+    </div>
+  </ng-container>
+</header>
+<ng-container *ngIf="search">
+  <app-search (emitClose)="hideSearchModal($event)"></app-search>
+</ng-container>
+<ng-container *ngIf="show_notifications">
+  <app-notifications
+    [notification_number]="notification_num"
+    [notifications]="notificationsFetched"
+    (notificationNumberEmitter)="newNotificationNumber($event)"
+    (closeModal)="showNotifications()"
+  ></app-notifications>
+</ng-container>

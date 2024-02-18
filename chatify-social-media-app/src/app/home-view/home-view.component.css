@@ -1,0 +1,12 @@
+main {
+  margin-top: 140px;
+}
+main > p {
+  text-align: center;
+  font-size: clamp(1em, 3vw, 1.1em);
+  margin-top: 2rem;
+}
+
+main.phoneOrTablet {
+  margin-top: 0;
+}

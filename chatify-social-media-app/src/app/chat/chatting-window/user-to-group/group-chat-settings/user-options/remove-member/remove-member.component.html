@@ -1,0 +1,14 @@
+<div
+  class="modal-wrapper"
+  [ngClass]="{ phoneOrTablet: (isPhoneOrTablet$ | async) }"
+>
+  <main [@scale-animation]>
+    <p>Are you sure you want to remove user from this group?</p>
+    <div id="qst">
+      <button class="button" (click)="removeUserFromGroup()">Proceed</button>
+      <button class="button" (click)="exitRemoveModal()">Cancel</button>
+    </div>
+  </main>
+</div>
+
+<div class="backdrop"></div>

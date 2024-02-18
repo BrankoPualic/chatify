@@ -1,0 +1,82 @@
+<div class="chat-infos">
+  <div class="chat-image">
+    <div class="c-image" (click)="showProfile(chat.user_id)">
+      <img
+        src="../../../../assets/img/uploads/userPictures/{{
+          chat.profile_picture_src
+        }}"
+        [alt]="chat.username"
+      />
+    </div>
+    <div class="c-name">
+      <p>{{ chat.username.substring(1) }}</p>
+    </div>
+  </div>
+  <i class="fa-solid fa-ellipsis-vertical" (click)="openChatUserSettings()"></i>
+</div>
+<div
+  class="chat"
+  #messagesContainer
+  *ngIf="messages"
+  (scroll)="messages.length >= 20 ? onChatScroll() : null"
+  [ngClass]="{ phoneOrTablet: (isPhoneOrTablet$ | async) }"
+>
+  <p class="grey" *ngIf="messages.length === 0">
+    Welcome to chatting. Please be polite to each other. <br />
+    Say hi to other user.
+  </p>
+  <ng-container *ngIf="messages.length !== 0">
+    <ng-container *ngFor="let message of messages; let i = index">
+      <div
+        class="message"
+        [ngClass]="{
+          mine: message.sender_id === mineId,
+          others: message.sender_id !== mineId
+        }"
+      >
+        <div class="profile-image">
+          <img
+            *ngIf="i === 0 || message.sender_id !== messages[i - 1]?.sender_id"
+            (click)="showProfile(message.sender_id)"
+            src="../../../../assets/img/uploads/userPictures/{{
+              message.profile_picture_src
+            }}"
+            [alt]="message.username"
+          />
+        </div>
+        <div class="message-wrap">
+          <div class="profile-message" style="white-space: pre-wrap">
+            {{ message.message_text }}
+          </div>
+          <p class="grey">
+            {{ localTimeZone(message.message_date) | date : "short" }}
+          </p>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+  <div class="typing" *ngIf="isTyping">
+    User {{ chat.username.substring(1) }} is typing ...
+  </div>
+</div>
+<div
+  class="chat-input"
+  [ngClass]="{ phoneOrTablet: (isPhoneOrTablet$ | async) }"
+>
+  <textarea
+    name="message"
+    class="send-message"
+    cols="30"
+    rows="1"
+    #mess
+    placeholder="Message..."
+    (keyup)="onMessageTyping()"
+  ></textarea>
+  <i class="fa-solid fa-paper-plane" (click)="sendMessage(mess.value)"></i>
+</div>
+<ng-container *ngIf="settings">
+  <app-user-chat-settings
+    [chatUser]="chat.user_id"
+    (closeSettingsEmitter)="closeSettings($event)"
+  ></app-user-chat-settings>
+</ng-container>

@@ -1,0 +1,8 @@
+<main [ngSwitch]="whatTypeOfChat">
+  <ng-container *ngSwitchCase="'user'">
+    <app-user-to-user></app-user-to-user>
+  </ng-container>
+  <ng-container *ngSwitchCase="'group'">
+    <app-user-to-group></app-user-to-group>
+  </ng-container>
+</main>

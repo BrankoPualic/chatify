@@ -1,0 +1,98 @@
+<main [ngClass]="{ phonePortrait: (isPhonePortrait$ | async) }">
+  <div class="post" *ngFor="let post of blog; let i = index">
+    <div class="user">
+      <div class="user-image" (click)="showProfile(post.user_id)">
+        <img
+          src="../../../assets/img/uploads/userPictures/{{
+            post.post_profile_picture
+          }}"
+          [alt]="post.post_username"
+        />
+      </div>
+      <p class="username" (click)="showProfile(post.user_id)">
+        {{ post.post_username }}
+      </p>
+    </div>
+    <div
+      class="image"
+      *ngIf="post.file_src_array.length === 1"
+      (click)="onTap(post.post_id)"
+    >
+      <img
+        src="../../../assets/img/uploads/{{ post.file_src_array[0] }}"
+        [alt]="post.file_src_array[0]"
+      />
+    </div>
+    <div
+      class="image carousel-container"
+      *ngIf="post.file_src_array.length > 1"
+      (click)="onTap(post.post_id)"
+    >
+      <img
+        *ngFor="let image of post.file_src_array; let i = index"
+        src="../../../assets/img/uploads/{{ image }}"
+        [alt]="image"
+        [ngClass]="{ 'image-active': selectedIndex === i }"
+        class="fade"
+        (swipeLeft)="selectImage(i + 1, post.file_src_array.length)"
+        (swipeRight)="selectImage(i - 1, post.file_src_array.length)"
+      />
+
+      <div class="carousel-dot-container">
+        <span
+          *ngFor="let dot of post.file_src_array; let i = index"
+          class="dot"
+          [ngClass]="{ 'dot-active': selectedIndex === i }"
+          (click)="selectImage(i)"
+        ></span>
+      </div>
+    </div>
+    <div class="post-like">
+      <div class="icon">
+        <i
+          class="fa-regular fa-heart animate"
+          (click)="postLiked(post.post_id)"
+          *ngIf="!post.is_liked"
+        ></i>
+        <i
+          class="fa-solid fa-heart liked animate"
+          (click)="postLiked(post.post_id)"
+          *ngIf="post.is_liked"
+        ></i>
+        <i
+          class="fa-regular fa-comment"
+          (click)="showPost(post.post_id, post.user_id)"
+        ></i>
+        <span>{{ post.comment_count ?? 0 | numberAbbreviation }}</span>
+      </div>
+      <p *ngIf="!post.is_liked">
+        {{ post.like_count ?? 0 | numberAbbreviation }} People liked this post.
+      </p>
+      <p *ngIf="post.is_liked && post.like_count">
+        You and {{ post.like_count - 1 | numberAbbreviation }} others liked this
+        post.
+      </p>
+    </div>
+    <div class="post-info">
+      <p class="time">Posted {{ post.post_date | date : "MMM d, y" }}</p>
+      <p style="white-space: pre-wrap; word-break: break-word">
+        {{ post.post_description | shorten }}
+      </p>
+      <a (click)="showPost(post.post_id, post.user_id)">See more...</a>
+      <form [formGroup]="comment" class="sendComment">
+        <textarea
+          name="comment"
+          id="comment"
+          cols="30"
+          rows="1"
+          formControlName="comment"
+          placeholder="Your comment..."
+        ></textarea>
+        <i
+          class="fa-solid fa-paper-plane"
+          (click)="onCommentSubmit(post.post_id)"
+        ></i>
+      </form>
+    </div>
+  </div>
+</main>

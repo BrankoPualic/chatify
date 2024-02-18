@@ -1,0 +1,58 @@
+<div
+  class="modal-wrapper"
+  [ngClass]="{ phoneOrTablet: (isPhoneOrTablet$ | async) }"
+>
+  <main [@scale-animation]>
+    <div class="go-back" (click)="closeEdit()">
+      <i class="fa-solid fa-arrow-left-long"></i>
+      <p>Go Back</p>
+    </div>
+    <form [formGroup]="form">
+      <div id="edit-image" (click)="uploadImage()">
+        <img
+          *ngIf="newGroupImage === undefined"
+          src="../../../../../../assets/img/uploads/groupPictures/{{
+            groupInfo.group_image_src
+          }}"
+          [alt]="groupInfo.group_name"
+        />
+        <img
+          *ngIf="newGroupImage !== undefined"
+          [src]="newGroupImage"
+          [alt]="groupInfo.group_name"
+        />
+        <i class="fa-solid fa-circle-plus"></i>
+        <input
+          type="file"
+          name="group-image"
+          #inputFile
+          (change)="onInputChange()"
+          accept=".png, .jpg"
+          id="image-up"
+        />
+      </div>
+      <div id="edit-name">
+        <label>New group name</label>
+        <input type="text" name="name" formControlName="name" />
+      </div>
+      <div id="edit-desc">
+        <label>New group description</label>
+        <textarea
+          name="desc"
+          cols="30"
+          rows="15"
+          formControlName="desc"
+        ></textarea>
+      </div>
+      <button
+        class="button"
+        (click)="saveChanges()"
+        value="Save"
+        [disabled]="!form.valid"
+      >
+        Save
+      </button>
+    </form>
+  </main>
+</div>
+<div class="backdrop"></div>

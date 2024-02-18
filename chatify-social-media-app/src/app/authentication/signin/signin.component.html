@@ -1,0 +1,40 @@
+<section id="form" [ngClass]="{ phoneOrTablet: (isPhoneOrTablet$ | async) }">
+  <h2>Sign in</h2>
+  <form [formGroup]="signin" (ngSubmit)="onSigninSubmit()">
+    <div>
+      <label>Email address</label>
+      <input type="email" name="email" formControlName="email" />
+      <p
+        class="error"
+        *ngIf="!signin.get('email')?.valid && signin.get('email')?.touched"
+      >
+        Your email is invalid! Please use the full email format. For example:
+        test@test.com
+      </p>
+    </div>
+    <div>
+      <label>Password</label>
+      <input type="password" name="pass" formControlName="password" />
+      <p
+        class="error"
+        *ngIf="
+          !signin.get('password')?.valid && signin.get('password')?.touched
+        "
+      >
+        Your password is invalid! Password must be at least 8 charactes long and
+        needs to have at least one uppercase letter and one number.
+      </p>
+    </div>
+    <input
+      type="submit"
+      value="Sign in"
+      class="button"
+      [disabled]="!signin.valid"
+    />
+    <span #signinError class="error"></span>
+  </form>
+  <p>
+    Don't have an account?
+    <a (click)="openSignup()">Sign up.</a>
+  </p>
+</section>

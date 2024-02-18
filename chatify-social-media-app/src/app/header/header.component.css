@@ -1,0 +1,131 @@
+.active {
+  color: red !important;
+}
+header {
+  width: 100%;
+  display: flex;
+  position: fixed;
+  background-color: #fff;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.5rem 2%;
+  height: 120px;
+  align-items: center;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+#logo {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+#logo img {
+  height: 100px;
+}
+#logo h1 {
+  font-family: "Kaushan Script", cursive;
+  /* font-size: 2.7em; */
+  font-size: clamp(2em, 5vw, 2.7em);
+  font-weight: 200;
+}
+.interactive {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 100px;
+}
+.interactive i {
+  /* font-size: 1.2em; */
+  font-size: clamp(1em, 3vw, 1.2em);
+  color: #606060;
+  cursor: pointer;
+}
+
+#search {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  top: 60px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50px;
+  padding: 0 0.5rem;
+  border: 1px solid var(--border-light);
+}
+#search input {
+  padding: 0.5rem;
+  font-size: 1em;
+  width: 400px;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+}
+#notify {
+  position: relative;
+  cursor: pointer;
+}
+#notification-num {
+  position: absolute;
+  top: 5px;
+  right: -10px;
+  background-color: red;
+  width: 17.5px;
+  height: 17.5px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.7em;
+}
+
+/* Responsive classes */
+header.otherThanHome {
+  height: 0;
+  padding: 0;
+}
+header.otherThanHome #logo {
+  display: none;
+}
+header.phoneOrTablet {
+  position: unset;
+  box-shadow: none;
+}
+header.phoneOrTablet #logo img {
+  height: 75px;
+}
+header.phoneOrTablet .interactive {
+  position: fixed;
+  top: calc(100vh - 60px);
+  left: 0;
+  width: 100dvw;
+  background-color: #fff;
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
+  justify-content: space-around;
+  height: 60px;
+  z-index: 9000;
+  align-items: center;
+}
+
+header.phoneOrTablet #search {
+  top: calc(100vh - 75px - 40px);
+  height: 40px;
+  left: 0;
+  transform: translate(0);
+  border-radius: 0;
+  width: 100%;
+  border: 0;
+  border-top: 1px solid var(--border-light);
+  background-color: #fff;
+  z-index: 8999;
+}
+header.phoneOrTablet #search input {
+  width: 100%;
+  border-radius: 0;
+}

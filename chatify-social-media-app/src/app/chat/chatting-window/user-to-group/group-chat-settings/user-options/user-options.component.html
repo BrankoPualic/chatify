@@ -1,0 +1,47 @@
+<div
+  class="modal-wrapper"
+  [ngClass]="{ phoneOrTablet: (isPhoneOrTablet$ | async) }"
+>
+  <main #main [@scale-animation]>
+    <div class="go-back" (click)="closeModal()">
+      <i class="fa-solid fa-arrow-left-long"></i>
+      <p>Go Back</p>
+    </div>
+    <div class="selected-user-info">
+      <div class="selected-image">
+        <img
+          src="../../../../../../assets/img/uploads/userPictures/{{
+            user.profile_picture_src
+          }}"
+          [alt]="user.username"
+        />
+      </div>
+      <div class="selected-name">
+        <p>{{ user.full_name }} ({{ user.name }})</p>
+        <p class="grey">{{ user.username.substring(1) }}</p>
+      </div>
+    </div>
+    <div class="selected-user-options">
+      <div class="user-role">
+        <select [(ngModel)]="selectedUserRole" (change)="onRoleSelected()">
+          <option [value]="user.group_role_id">{{ user.name }}</option>
+          <option [value]="role.group_role_id" *ngFor="let role of roles">
+            {{ role.name }}
+          </option>
+        </select>
+      </div>
+      <div class="remove-member">
+        <button class="button" (click)="openRemoveApproval()">Remove</button>
+      </div>
+    </div>
+  </main>
+</div>
+<div class="backdrop"></div>
+<ng-container *ngIf="removeModal">
+  <app-remove-member
+    [userId]="user.user_id"
+    [groupId]="groupId"
+    (exit)="closeRemoveModal($event)"
+    (exitUserOptions)="closeModalAndEmitUserId($event)"
+  ></app-remove-member>
+</ng-container>

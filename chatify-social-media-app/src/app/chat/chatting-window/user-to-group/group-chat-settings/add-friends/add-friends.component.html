@@ -1,0 +1,46 @@
+<div
+  class="modal-wrapper"
+  [ngClass]="{ phoneOrTablet: (isPhoneOrTablet$ | async) }"
+>
+  <main [@scale-animation]>
+    <div class="go-back" (click)="closeModal()">
+      <i class="fa-solid fa-arrow-left-long"></i>
+      <p>Go Back</p>
+    </div>
+    <input
+      type="text"
+      #search
+      (keyup)="onSearch(search.value)"
+      placeholder="Find your friends..."
+    />
+    <div id="results">
+      <p *ngIf="results === undefined">Please enter username above.</p>
+      <ng-container *ngIf="results !== undefined">
+        <p *ngIf="!results.length">User not found!</p>
+        <ng-container *ngIf="results.length">
+          <div class="result" *ngFor="let user of results; let i = index">
+            <div class="result-image">
+              <img
+                src="../../../../../../assets/img/uploads/userPictures/{{
+                  user.profile_picture_src
+                }}"
+                [alt]="user.username.substring(1)"
+              />
+            </div>
+            <div class="result-name">
+              <p>{{ user.full_name }}</p>
+              <p class="grey">{{ user.username }}</p>
+            </div>
+            <div class="add-btn">
+              <button class="button" (click)="addUser(user.user_id, i)">
+                Add
+              </button>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </main>
+</div>
+
+<div class="backdrop" (click)="closeModal()"></div>

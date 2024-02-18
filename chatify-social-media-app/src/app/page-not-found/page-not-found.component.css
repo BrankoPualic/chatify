@@ -1,0 +1,37 @@
+#pnf404 {
+  height: calc(100vh - 120px);
+  width: 100%;
+  position: relative;
+}
+#not-found {
+  text-align: center;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#pnf404 h1 {
+  color: var(--turquoise);
+  font-size: 4em;
+}
+#pnf404 h3 {
+  color: var(--turquoise);
+  font-size: 2em;
+  margin: 1rem;
+}
+#pnf404 p {
+  color: grey;
+  font-size: 1.1em;
+  margin-bottom: 2rem;
+}
+#pnf404 a {
+  display: block;
+  margin: 0 auto;
+  width: 175px;
+  font-size: 1em;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--turquoise);
+  cursor: pointer;
+  text-decoration: none;
+}

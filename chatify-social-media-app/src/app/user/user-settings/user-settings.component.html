@@ -1,0 +1,20 @@
+<div
+  class="modal-wrapper"
+  [ngClass]="{ phoneOrTablet: (isPhoneOrTablet$ | async) }"
+>
+  <main #main [@scale-animation]>
+    <p (click)="showReportModal()">
+      <i class="fa-solid fa-circle-exclamation"></i> Report user
+    </p>
+    <p (click)="closeSettingsModal()">
+      <i class="fa-solid fa-xmark"></i> Close
+    </p>
+  </main>
+</div>
+<ng-container *ngIf="reportModal">
+  <app-user-report
+    [showModal]="reportModal"
+    (closeModalEmit)="closeModal($event)"
+  ></app-user-report>
+</ng-container>
+<div class="backdrop" (click)="closeSettingsModal()"></div>

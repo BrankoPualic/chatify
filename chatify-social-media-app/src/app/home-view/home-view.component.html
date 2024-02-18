@@ -1,0 +1,6 @@
+<main [ngClass]="{ phoneOrTablet: (isPhoneOrTablet$ | async) }">
+  <app-blog (blogEmitter)="setBlog($event)"></app-blog>
+  <p *ngIf="!blogLength">
+    There are no recent posts. Please follow some people.
+  </p>
+</main>

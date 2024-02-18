@@ -1,0 +1,67 @@
+<main [ngClass]="{ phoneOrTablet: (isPhoneOrTablet$ | async) }">
+  <div class="card" *ngIf="step1">
+    <div class="top">
+      <button class="button" (click)="goBack()">Go back</button>
+      <p>Drag & drop image uploading, Limit 12</p>
+      <button
+        class="button"
+        [disabled]="files.length === 0"
+        (click)="goToStep2()"
+      >
+        Next
+      </button>
+    </div>
+    <form
+      #frm
+      [formGroup]="imageForm"
+      (ngSubmit)="onImageUpload()"
+      (dragover)="onFormDragOver($event, frm)"
+      (dragleave)="onFormDragLeave($event, frm)"
+      (drop)="onFormDrop($event, frm)"
+      enctype="multipart/form-data"
+    >
+      <ng-container *ngIf="showBrowseInnerText">
+        <span class="inner"
+          >Drag & drop image here or
+          <span class="select" (click)="onBrowseClick()">Browse</span></span
+        >
+      </ng-container>
+      <ng-container *ngIf="!showBrowseInnerText">
+        <span class="inner"> Drop images here</span>
+      </ng-container>
+      <input
+        type="file"
+        #fileInput
+        name="file"
+        class="file"
+        multiple
+        (change)="onInputChange()"
+        accept=".png, .jpg"
+      />
+    </form>
+    <div class="container">
+      <div class="image" *ngFor="let imageUrl of imageUrls; let i = index">
+        <img [src]="imageUrl" [alt]="imageUrl" />
+        <span (click)="delImage(imageUrl, i)">&times;</span>
+      </div>
+    </div>
+  </div>
+  <div class="card" *ngIf="step2">
+    <form [formGroup]="imageForm" (ngSubmit)="onImageUpload()" class="step2">
+      <div class="top">
+        <button class="button" (click)="goBackToImages()">Go Back</button>
+        <p>Post description</p>
+        <button class="button" type="submit">Publish</button>
+      </div>
+
+      <textarea
+        name="description"
+        form="imageForm"
+        formControlName="desc"
+        cols="30"
+        rows="10"
+        placeholder="Write something about the post if you want."
+      ></textarea>
+    </form>
+  </div>
+</main>

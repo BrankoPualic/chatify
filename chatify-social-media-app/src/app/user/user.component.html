@@ -1,0 +1,102 @@
+<main *ngIf="user" [ngClass]="{ phoneOrTablet: (isPhoneOrTablet$ | async) }">
+  <section id="user-info">
+    <div id="profile">
+      <div id="profile-image" (click)="myProfile ? publishPost() : null">
+        <img
+          src="../../assets/img/uploads/userPictures/{{
+            user.profile_picture_src
+          }}"
+          [alt]="user.profile_picture_src"
+        />
+        <div id="publish" *ngIf="myProfile">
+          <i class="fa-solid fa-circle-plus"></i>
+        </div>
+      </div>
+      <div id="following">
+        <div
+          class="following-info"
+          *ngFor="let info of following; let i = index"
+        >
+          <p>{{ info }}</p>
+          <p>{{ followingValues[i] | numberAbbreviation }}</p>
+        </div>
+        <i
+          class="fa-solid fa-ellipsis-vertical"
+          [ngClass]="{ hidden: myProfile }"
+          (click)="!myProfile ? openSettings() : null"
+        ></i>
+      </div>
+    </div>
+    <div id="user-cred">
+      <p>{{ user.full_name }}</p>
+      <p>{{ user.username }}</p>
+      <ng-container *ngIf="user.biography !== null">
+        <p>{{ user.biography }}</p>
+      </ng-container>
+    </div>
+    <div class="inter" *ngIf="myProfile">
+      <!-- Trebalo bi Edit profile -->
+      <a (click)="changeProfilePicture()">Edit Profile Picture</a>
+      <input
+        type="file"
+        name="file"
+        #fileInput
+        id="pfpicture"
+        (change)="onImageAdded()"
+        accept=".png, .jpg"
+      />
+    </div>
+    <div class="inter" *ngIf="!myProfile">
+      <ng-container *ngIf="!doFollow">
+        <a (click)="follow(user.user_id)" class="follow">Follow</a>
+      </ng-container>
+      <ng-container *ngIf="doFollow">
+        <a (click)="goToChat(user.username)">Send Message</a>
+        <a (click)="unfollow(user.user_id)"
+          >Following <i class="fa-solid fa-user-check"></i
+        ></a>
+      </ng-container>
+    </div>
+  </section>
+  <section id="images">
+    <ng-container *ngIf="!blog.length">
+      <p>This user didn't post anything yet.</p>
+    </ng-container>
+    <ng-container *ngIf="blog.length">
+      <ng-container *ngFor="let post of blog">
+        <div
+          class="profile-image"
+          (mouseenter)="post.showHover = true"
+          (mouseleave)="post.showHover = false"
+          (click)="showPost(post.post_id)"
+        >
+          <img
+            src="../../assets/img/uploads/{{ post.first_file_src }}"
+            [alt]="post.first_file_src"
+          />
+          <div class="hover" *ngIf="post.showHover">
+            <div>
+              <p>
+                {{ post.like_count ?? 0 }} <i class="fa-solid fa-heart"></i>
+              </p>
+            </div>
+            <div>
+              <p>
+                {{ post.comment_count ?? 0 }}
+                <i class="fa-solid fa-comment"></i>
+              </p>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </section>
+</main>
+<ng-container *ngIf="openPublishOptions">
+  <app-upload (closeModalEmit)="closePublishModal($event)"></app-upload>
+</ng-container>
+<ng-container *ngIf="settings">
+  <app-user-settings
+    (closeSettings)="closeSettings($event)"
+  ></app-user-settings>
+</ng-container>

@@ -1,0 +1,23 @@
+<div class="modal-wrapper">
+  <main #main [@scale-animation]>
+    <div (click)="showProfile()">
+      <i class="fa-regular fa-user"></i>
+      <p>Profile</p>
+    </div>
+    <div (click)="reportModal = true">
+      <i class="fa-solid fa-circle-exclamation"></i>
+      <p>Report user</p>
+    </div>
+    <div (click)="closeSettings()">
+      <i class="fa-solid fa-xmark"></i>
+      <p>Close</p>
+    </div>
+  </main>
+</div>
+<ng-container *ngIf="reportModal">
+  <app-user-report
+    (closeModalEmit)="closeModal($event)"
+    [showModal]="reportModal"
+  ></app-user-report>
+</ng-container>
+<div class="backdrop" (click)="closeSettings()"></div>

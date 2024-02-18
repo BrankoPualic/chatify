@@ -1,0 +1,133 @@
+<main *ngIf="post" [ngClass]="{ phoneOrTablet: (isPhoneOrTablet$ | async) }">
+  <div class="post-image-container" *ngIf="post.file_src_array.length === 1">
+    <img
+      src="../../../../assets/img/uploads/{{ post.file_src_array[0] }}"
+      [alt]="post.file_src_array[0]"
+    />
+  </div>
+  <div
+    class="post-image-container carousel-container"
+    *ngIf="post.file_src_array.length > 1"
+  >
+    <img
+      *ngFor="let image of post.file_src_array; let i = index"
+      src="../../../../assets/img/uploads/{{ image }}"
+      [alt]="image"
+      [ngClass]="{ 'image-active': selectedIndex === i }"
+      class="fade"
+      (swipeLeft)="selectImage(i + 1, post.file_src_array.length)"
+      (swipeRight)="selectImage(i - 1, post.file_src_array.length)"
+    />
+    <div class="carousel-dot-container">
+      <span
+        *ngFor="let dot of post.file_src_array; let i = index"
+        class="dot"
+        [ngClass]="{ 'dot-active': selectedIndex === i }"
+        (click)="selectImage(i)"
+      ></span>
+    </div>
+  </div>
+  <div class="post-info">
+    <div class="post-info-user">
+      <div class="user-info-wrap">
+        <div class="post-user-image">
+          <img
+            (click)="showProfile(post.user_id)"
+            src="../../../../assets/img/uploads/userPictures/{{
+              post.post_profile_picture
+            }}"
+            [alt]="post.post_username"
+          />
+        </div>
+        <div class="post-user-name">
+          <p>
+            <span (click)="showProfile(post.user_id)">{{
+              post.post_username
+            }}</span>
+            <span class="grey">&nbsp; {{ post.post_date | timeAgo }}</span>
+          </p>
+        </div>
+      </div>
+      <div class="post-like">
+        <i
+          class="fa-regular fa-heart animate"
+          (click)="postLiked(post.post_id)"
+          *ngIf="!post.is_liked"
+        ></i>
+        <i
+          class="fa-solid fa-heart liked animate"
+          (click)="postLiked(post.post_id)"
+          *ngIf="post.is_liked"
+        ></i>
+        <span class="grey">{{
+          post.like_count ?? 0 | numberAbbreviation
+        }}</span>
+        <i class="fa-regular fa-comment"></i>
+        <span class="grey">{{
+          post.comment_count ?? 0 | numberAbbreviation
+        }}</span>
+      </div>
+    </div>
+    <div class="post-desc">
+      <p style="white-space: pre-wrap">{{ post.post_description }}</p>
+    </div>
+    <div class="post-comments">
+      <p *ngIf="post.comment_count === null || post.comment_count === 0">
+        There are no comments on this post.
+      </p>
+      <ng-container *ngIf="post.comment_count">
+        <div class="comment" *ngFor="let comment of postComments">
+          <div class="comment-user">
+            <div class="comment-user-image">
+              <img
+                (click)="showProfile(comment.user_id)"
+                src="../../../../assets/img/uploads/userPictures/{{
+                  comment.profile_picture_src
+                }}"
+                [alt]="comment.username"
+              />
+            </div>
+            <div class="comment-username">
+              <p (click)="showProfile(comment.user_id)">
+                {{ comment.username }}
+              </p>
+            </div>
+            <p class="grey">&nbsp; {{ comment.comment_date | timeAgo }}</p>
+            <div class="comment-like">
+              <i
+                class="fa-regular fa-heart animate"
+                (click)="commentLiked(comment.comment_id)"
+                *ngIf="!comment.is_liked"
+              ></i>
+              <i
+                class="fa-solid fa-heart liked animate"
+                (click)="commentLiked(comment.comment_id)"
+                *ngIf="comment.is_liked"
+              ></i>
+              <p class="c-likes grey">
+                {{ comment.like_count ?? 0 | numberAbbreviation }}
+              </p>
+            </div>
+          </div>
+          <div class="comment-body">
+            <p>{{ comment.comment_text }}</p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <form class="sendComment" [formGroup]="comment">
+      <textarea
+        name="comment"
+        id="comment"
+        cols="30"
+        rows="1"
+        formControlName="comment"
+        placeholder="Your comment..."
+      ></textarea>
+      <i
+        class="fa-solid fa-paper-plane"
+        (click)="onCommentSubmit(post.post_id)"
+      ></i>
+    </form>
+  </div>
+</main>

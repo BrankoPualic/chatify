@@ -1,0 +1,44 @@
+.modal-wapper {
+  width: 400px;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 4rem;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+main p {
+  margin-bottom: 1.5rem;
+  font-size: clamp(1em, 3vw, 1.2em);
+}
+
+#qst {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+#qst button {
+  width: 40%;
+  font-size: 1em;
+}
+#qst button:nth-child(2) {
+  background-color: red !important;
+}
+
+/* Responsive */
+
+.modal-wrapper.phoneOrTablet {
+  width: 300px;
+}
+
+.modal-wrapper.phoneOrTablet main {
+  padding: 4rem 1rem;
+}

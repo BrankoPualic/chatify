@@ -1,0 +1,33 @@
+.modal-wrapper {
+  width: clamp(300px, 18vw, 400px);
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+  background-color: #fff;
+}
+
+main div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 1rem;
+  align-items: center;
+  font-size: clamp(0.9em, 3vw, 1em);
+  border-bottom: 1px solid var(--border-light);
+  cursor: pointer;
+  transition: 0.3s;
+}
+main div:hover {
+  background-color: var(--light-grey);
+}
+main div p {
+  margin-left: 0.75rem;
+}
+main div i {
+  font-size: 1.1em;
+  width: 20px;
+  text-align: center;
+}

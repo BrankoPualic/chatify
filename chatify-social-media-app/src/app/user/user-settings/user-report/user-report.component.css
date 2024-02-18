@@ -1,0 +1,92 @@
+.modal-wrapper {
+  width: 600px;
+}
+main {
+  background-color: #fff;
+  padding: 1rem;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+main h3 {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-top: 2rem;
+}
+main form {
+  margin: 1rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+}
+main form div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+main form div :is(textarea, select) {
+  padding: 0.25rem 0.5rem;
+  margin: 1rem 0;
+  font-size: 1em;
+  border-radius: 5px;
+}
+main form div textarea {
+  width: 100%;
+  resize: none;
+}
+main form div select {
+  width: 60%;
+}
+.details {
+  margin: 0 0 0.5rem;
+  border-radius: 5px;
+  width: 100%;
+  background-color: var(--light-grey);
+  padding: 0.25rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+main form div.btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1rem;
+}
+.btn input,
+.btn p {
+  width: 150px;
+  text-align: center;
+  background-color: var(--turquoise);
+  border: 1px solid var(--turquoise);
+  border: none;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  font-size: clamp(0.9em, 3vw, 1em);
+  box-shadow: var(--btn-shadow);
+  transition: 0.4s;
+}
+.btn :is(input, p):hover {
+  scale: 1.05;
+}
+
+.btn p {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid var(--turquoise);
+}
+.btn input:disabled {
+  cursor: default;
+  background-color: grey;
+  border: 1px solid grey;
+}
+.btn input:disabled:hover {
+  scale: 1;
+}
+
+/* Responsive */
+
+.modal-wrapper.phoneOrTablet {
+  width: 95%;
+}

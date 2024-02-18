@@ -1,0 +1,48 @@
+<div class="backdrop" (click)="closeModal()"></div>
+<div
+  class="modal-wrapper"
+  [ngClass]="{ phoneOrTablet: (isPhoneOrTablet$ | async) }"
+>
+  <main [@scale-animation]>
+    <h3>Submit User Report</h3>
+    <form [formGroup]="report" (ngSubmit)="submitReport()">
+      <div>
+        <label>Reason: </label>
+        <select
+          name="reason"
+          #res
+          (change)="onReasonSelected(res.value)"
+          formControlName="reason"
+        >
+          <option value="0">Select reason</option>
+          <option
+            [value]="reason.report_reason_id"
+            *ngFor="let reason of reasons; let i = index"
+          >
+            {{ reason.reason }}
+          </option>
+        </select>
+      </div>
+      <div class="details" *ngIf="reasonSelected !== ''">
+        <p>{{ reasonSelected }}</p>
+      </div>
+      <div>
+        <label>Additional Details:</label>
+        <textarea
+          name="reportTxt"
+          cols="30"
+          rows="10"
+          formControlName="report_data"
+        ></textarea>
+      </div>
+      <div class="btn">
+        <input
+          type="submit"
+          value="Submit"
+          [disabled]="report.get('reason')?.value === '0'"
+        />
+        <p (click)="closeModal()">Cancel</p>
+      </div>
+    </form>
+  </main>
+</div>

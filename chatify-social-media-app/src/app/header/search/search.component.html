@@ -1,0 +1,44 @@
+<div class="backdrop" (click)="closeSearchModal()"></div>
+<div class="modal-wrapper">
+  <main [@scale-animation]>
+    <div class="heading">
+      <h4>Search</h4>
+      <i class="fa-solid fa-xmark" (click)="closeSearchModal()"></i>
+    </div>
+    <input
+      type="text"
+      name="search"
+      id="search"
+      #bar
+      (keyup)="searched(bar.value)"
+      placeholder="Search..."
+    />
+    <ng-container *ngIf="searchUsers.length">
+      <div id="uu">
+        <div
+          class="user"
+          *ngFor="let user of searchUsers"
+          (click)="showProfile(user.user_id)"
+        >
+          <div class="user-image">
+            <img
+              src="../../../assets/img/uploads/userPictures/{{
+                user.profile_picture_src
+              }}"
+              [alt]="user.profile_picture_src"
+            />
+          </div>
+          <p>{{ user.username }}</p>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container>
+      <p class="message" *ngIf="searchMessage !== '' && !searchUsers.length">
+        {{ searchMessage }}
+      </p>
+      <p class="message" *ngIf="searchMessage === '' && !searchUsers.length">
+        Find people...
+      </p>
+    </ng-container>
+  </main>
+</div>

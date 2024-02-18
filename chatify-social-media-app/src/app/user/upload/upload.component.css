@@ -1,0 +1,79 @@
+.modal-wrapper {
+  width: 60%;
+  height: 60%;
+}
+
+main {
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 5px;
+}
+main div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+main div:nth-child(1) {
+  border-right: 2px solid var(--border-light);
+}
+main div p {
+  font-size: clamp(1em, 3vw, 1.3em);
+  margin-bottom: 0.7rem;
+}
+main div div.ico {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75px;
+  height: 75px;
+  background-color: var(--turquoise);
+  border-radius: 50%;
+  font-size: 1.5em;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+main div div.ico:hover {
+  scale: 1.1;
+}
+main div div.not-active {
+  background-color: var(--border-light);
+  cursor: not-allowed;
+}
+main div div.not-active:hover {
+  scale: 1;
+}
+
+main > div.ico {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.2em;
+  z-index: 9999;
+  background-color: var(--light-grey);
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+
+/* Responsivve */
+
+.phoneOrTablet {
+  width: 95%;
+}
+.phoneOrTablet main {
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.phoneOrTablet main :not(div.ico) {
+  width: 100%;
+  text-align: center;
+  border: none;
+}

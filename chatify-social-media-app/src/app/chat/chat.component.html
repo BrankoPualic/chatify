@@ -1,0 +1,124 @@
+<main [ngClass]="{ phoneOrTablet: (isPhoneOrTablet$ | async) }" #main>
+  <div id="chat" #opt>
+    <div id="user-group">
+      <p (click)="showUsers()" [ngClass]="{ 'active-button': activeButton }">
+        Users
+      </p>
+      <p (click)="showGroups()" [ngClass]="{ 'active-button': !activeButton }">
+        Groups
+      </p>
+    </div>
+    <div id="search-div">
+      <div id="wrap-search">
+        <i class="fa-solid fa-magnifying-glass"></i
+        ><input
+          type="text"
+          name="search-chat"
+          #search
+          (keyup)="submitSearch(search.value)"
+          placeholder="Search conversations..."
+        />
+      </div>
+    </div>
+    <div id="results">
+      <p *ngIf="!activeButton" class="create-group" (click)="createGroup()">
+        Create group <i class="fa-solid fa-circle-plus add-button"></i>
+      </p>
+      <p class="grey" *ngIf="!conversations.length && !searching">
+        {{ textMessage }}
+      </p>
+      <ng-container *ngIf="conversations.length && !searching">
+        <div
+          class="conversation"
+          *ngFor="let conv of conversations"
+          (click)="
+            activeButton
+              ? navigateUrl(conv.user_id)
+              : navigateUrl(conv.group_id)
+          "
+        >
+          <div class="conv-image">
+            <img
+              *ngIf="activeButton"
+              src="../../assets/img/uploads/userPictures/{{
+                conv.profile_picture_src
+              }}"
+              [alt]="conv.username"
+            />
+            <img
+              *ngIf="!activeButton"
+              src="../../assets/img/uploads/groupPictures/{{
+                conv.group_image_src
+              }}"
+              [alt]="conv.group_name"
+            />
+          </div>
+          <div class="conv-inf" *ngIf="activeButton">
+            <p>{{ conv.username.substring(1) }}</p>
+            <p class="grey">
+              Last message:
+              {{ localTimeZone(conv.last_message_date) | date : "short" }}
+            </p>
+          </div>
+          <div class="conv-inf" *ngIf="!activeButton">
+            <p>{{ conv.group_name }}</p>
+            <p class="grey" *ngIf="conv.last_message_date !== null">
+              Last message:
+              {{ localTimeZone(conv.last_message_date) | date : "short" }}
+            </p>
+            <p class="grey" *ngIf="conv.last_message_date === null">
+              New group chat
+            </p>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="activeButton && searching">
+        <div
+          class="show-results"
+          *ngFor="let user of searchedResults"
+          (click)="openUserChat(user.user_id)"
+        >
+          <div class="result-image">
+            <img
+              src="../../assets/img/uploads/userPictures/{{
+                user.profile_picture_src
+              }}"
+              [alt]="user.username"
+            />
+          </div>
+          <div class="result-name">
+            <p>{{ user.username.substring(1) }}</p>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!activeButton && searching">
+        <div
+          class="show-results"
+          *ngFor="let group of searchedResults"
+          (click)="openGroupChat(group.group_id)"
+        >
+          <div class="result-image">
+            <img
+              src="../../assets/img/uploads/groupPictures/{{
+                group.group_image_src
+              }}"
+              [alt]="group.group_name"
+            />
+          </div>
+          <div class="result-name">
+            <p>{{ group.group_name }}</p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <div id="chat-wrapper" *ngIf="chatOpened">
+    <app-chatting-window></app-chatting-window>
+  </div>
+</main>
+
+<ng-container *ngIf="openGroupCreationModal">
+  <app-create-group
+    (closeModalEmitter)="closeGroupCreationModal($event)"
+  ></app-create-group>
+</ng-container>

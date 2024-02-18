@@ -1,0 +1,135 @@
+<div class="backdrop"></div>
+<div
+  class="modal-wrapper"
+  [ngClass]="{ phoneOrTablet: (isPhoneOrTablet$ | async) }"
+>
+  <main [@scale-animation]>
+    <i class="fa-solid fa-xmark" (click)="closeGroupCreateModal()"></i>
+    <div id="top">
+      <button class="button" (click)="goStepBack()" [disabled]="steps === 1">
+        Previous
+      </button>
+      <div id="steps">
+        <p class="done">1</p>
+        <p [ngClass]="{ done: steps === 2 }">2</p>
+      </div>
+      <ng-container *ngIf="steps === 1">
+        <button
+          class="button"
+          (click)="goStepForward()"
+          [disabled]="!groupForm.valid"
+        >
+          Next
+        </button>
+      </ng-container>
+      <ng-container *ngIf="steps === 2">
+        <button
+          class="button"
+          (click)="createGroup()"
+          [disabled]="!groupForm.valid"
+        >
+          Create
+        </button>
+      </ng-container>
+    </div>
+    <div id="creation" [ngSwitch]="steps">
+      <div id="group-infos-creation" *ngSwitchCase="1">
+        <form [formGroup]="groupForm">
+          <div>
+            <div id="group-img" (click)="uploadImage()">
+              <img
+                [src]="groupImage"
+                [alt]="groupImage"
+                *ngIf="groupImage !== undefined"
+              />
+              <i class="fa-solid fa-circle-plus"></i>
+              <input
+                type="file"
+                name="group-image"
+                id="image-up"
+                #inputFile
+                (change)="onInputChange()"
+                accept=".png, .jpg"
+              />
+            </div>
+            <div id="group-name">
+              <label>Group name</label>
+              <input type="text" name="name" formControlName="name" />
+            </div>
+          </div>
+          <div>
+            <label>Group description</label>
+            <textarea
+              name="desc"
+              cols="30"
+              rows="15"
+              formControlName="desc"
+            ></textarea>
+          </div>
+        </form>
+      </div>
+      <div id="adding-member" *ngSwitchCase="2">
+        <div id="search-div">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            type="text"
+            name="users"
+            (keyup)="findFriends(search.value)"
+            #search
+            placeholder="Search friends list..."
+          />
+        </div>
+        <div id="added-users" *ngIf="!searching">
+          <p *ngIf="addedUsers.length === 0" class="grey">
+            Please add friends into your group.
+          </p>
+          <ng-container *ngIf="addedUsers.length !== 0">
+            <div class="friend" *ngFor="let user of addedUsers; let i = index">
+              <div class="friend-image">
+                <img
+                  src="../../../assets/img/uploads/userPictures/{{
+                    user.profile_picture_src
+                  }}"
+                  [alt]="user.username"
+                />
+              </div>
+              <div class="friend-name">
+                <p>{{ user.username.substring(1) }}</p>
+                <i
+                  class="fa-regular fa-circle-xmark"
+                  (click)="removeFriend(i)"
+                ></i>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+        <div id="searching-results" *ngIf="searching">
+          <p *ngIf="searchedUsers.length === 0" class="grey">User not found!</p>
+          <ng-container *ngIf="searchedUsers.length !== 0">
+            <div class="searched" *ngFor="let user of searchedUsers">
+              <div class="searched-user-image">
+                <img
+                  src="../../../assets/img/uploads/userPictures/{{
+                    user.profile_picture_src
+                  }}"
+                  [alt]="user.username"
+                />
+              </div>
+              <div class="searched-user-name">
+                <p>{{ user.username.substring(1) }}</p>
+                <button
+                  class="button"
+                  (click)="addFriendToGroup(user)"
+                  *ngIf="!user.added"
+                >
+                  Add
+                </button>
+                <i class="fa-regular fa-circle-check" *ngIf="user.added"></i>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

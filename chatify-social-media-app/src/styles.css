@@ -1,0 +1,212 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+:root {
+  --turquoise: #1f618f;
+  --light-grey: #e2e2e2;
+  --border-light: #b6b6b6;
+  --light-blue: #6ca8d3;
+  --btn-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.error,
+.liked {
+  color: red;
+}
+.green {
+  color: green;
+  font-size: 0.9em !important;
+}
+.grey {
+  color: grey;
+  font-size: 0.9em !important;
+  font-weight: 400;
+}
+.fa-heart {
+  transition: transform 0.3s;
+}
+.fa-heart.animate {
+  transform: scale(1.05);
+}
+.fa-xmark {
+  cursor: pointer;
+}
+.red-dot {
+  width: 7px;
+  height: 7px;
+  background-color: red;
+  border-radius: 50%;
+  display: block;
+}
+.hidden {
+  opacity: 0;
+}
+.backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9998;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transform-origin: center;
+}
+.button {
+  text-align: center;
+  background-color: var(--turquoise);
+  border: none;
+  color: #fff;
+  font-size: clamp(0.95em, 4.5vw, 1.1em);
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  box-shadow: var(--btn-shadow);
+  transition: 0.3s;
+  outline: 0;
+}
+.button:hover {
+  scale: 1.05;
+}
+.button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+.button:disabled:hover {
+  scale: 1;
+}
+
+/* Carousel / Slider */
+
+.carousel-container {
+  position: relative;
+}
+
+.carousel-container img {
+  display: none;
+}
+
+.carousel-container img.image-active {
+  display: block;
+}
+/* Dots indicators */
+.carousel-dot-container {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+.dot {
+  cursor: pointer;
+  height: 8px;
+  width: 8px;
+  margin: 0 5px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  transform: opacity 0.6s ease;
+  opacity: 0.5;
+  transition: 0.3s;
+}
+
+.dot-active,
+.dot:hover {
+  opacity: 1;
+  scale: 1.2;
+}
+
+/* Image transition fade effect */
+.fade {
+  animation-name: fade;
+  animation-duration: 1s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Comment */
+
+form.sendComment {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 0.75rem;
+}
+form.sendComment textarea {
+  flex: 1;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 1em;
+  padding: 0.5rem 0.5rem 0.5rem 0;
+  resize: none;
+}
+:is(
+    .post-comments,
+    #results,
+    .chat,
+    textarea,
+    #searching-results,
+    .members,
+    .g-desc
+  )::-webkit-scrollbar {
+  width: 10px;
+}
+
+:is(
+    .post-comments,
+    #results,
+    .chat,
+    textarea,
+    #searching-results,
+    .members,
+    .g-desc
+  )::-webkit-scrollbar-track {
+  -webkit-box-shadow: var(--light-grey);
+}
+
+:is(
+    .post-comments,
+    #results,
+    .chat,
+    textarea,
+    #searching-results,
+    .members,
+    .g-desc
+  )::-webkit-scrollbar-thumb {
+  background-color: var(--border-light);
+  border-radius: 50px;
+  outline: none;
+}
+
+form.sendComment i {
+  cursor: pointer;
+  color: var(--turquoise);
+  font-size: 1.2em;
+  margin-left: 1rem;
+  transition: 0.3s;
+}
+form.sendComment i:hover {
+  scale: 1.1;
+}

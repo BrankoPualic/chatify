@@ -1,0 +1,247 @@
+main {
+  width: 800px;
+  height: 600px;
+  position: relative;
+  background-color: #fff;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2rem 4rem;
+}
+main > i.fa-xmark {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5em;
+  color: var(--turquoise);
+}
+#top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+#steps {
+  width: 125px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+#steps p {
+  font-size: clamp(0.85em, 3vw, 1em);
+  border-radius: 50%;
+  padding: 0.25rem 0.5rem;
+  width: 34px;
+  text-align: center;
+  border: 2px solid var(--turquoise);
+  background-color: #fff;
+  transition: 0.3s;
+}
+#steps p.done {
+  background-color: var(--turquoise);
+  color: #fff;
+}
+
+#creation {
+  width: 100%;
+  height: auto;
+  margin-top: 1.5rem;
+}
+#group-infos-creation form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+#group-infos-creation form div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+#group-infos-creation form > div:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+#group-img {
+  position: relative;
+  width: 75px;
+  height: 75px;
+  border: 2px solid var(--turquoise);
+  color: var(--turquoise);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#group-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+#group-img i {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 1.2em;
+  border: 1px solid #fff;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#image-up {
+  display: none;
+}
+#group-name {
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+#group-name input {
+  width: 250px;
+  outline: none;
+  border: 1px solid #000;
+  padding: 0.25rem 0.5rem;
+}
+#group-infos-creation form div textarea {
+  resize: none;
+  padding: 0.5rem;
+  font-size: 1em;
+  outline: none;
+  border: 1px solid #000;
+}
+
+/* Step2 */
+#adding-member {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+#search-div {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid grey;
+  border-radius: 50px;
+}
+#search-div i {
+  font-size: 1.15em;
+  color: grey;
+}
+#search-div input {
+  flex: 1;
+  margin-left: 1rem;
+  border: none;
+  outline: none;
+  font-size: 1em;
+}
+#adding-member > div > p {
+  text-align: center;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+#searching-results,
+#added-users {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  overflow: auto;
+  height: auto;
+  max-height: 400px;
+}
+.searched,
+.friend {
+  width: 45%;
+  margin: 0.5rem 2.5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+.searched-user-image,
+.friend-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.searched-user-image img,
+.friend-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.searched-user-name,
+.friend-name {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 1rem;
+  justify-content: space-between;
+  width: calc(100% - 70px);
+}
+.searched-user-name p,
+.friend-name p {
+  font-size: 1.1em;
+  font-weight: 700;
+}
+.searched-user-name i {
+  font-size: 1.7em;
+  color: green;
+}
+.friend-name i {
+  font-size: 1.7em;
+  color: red;
+  cursor: pointer;
+}
+
+/* Resposnive */
+
+.modal-wrapper.phoneOrTablet {
+  width: 95%;
+}
+.phoneOrTablet main {
+  padding: 3rem 1rem;
+  width: 100%;
+  height: auto;
+}
+
+.phoneOrTablet main #steps {
+  width: 100px;
+}
+.phoneOrTablet main #group-infos-creation form > div:nth-child(1) {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 0;
+}
+
+.phoneOrTablet main #group-name {
+  margin-left: 0;
+}
+
+.phoneOrTablet main :is(.searched, .friend) {
+  flex-direction: column;
+  align-items: center;
+}
+.phoneOrTablet main :is(.searched-user-name, .friend-name) {
+  margin-left: 0rem;
+  font-size: 0.9em;
+  flex-direction: column;
+}

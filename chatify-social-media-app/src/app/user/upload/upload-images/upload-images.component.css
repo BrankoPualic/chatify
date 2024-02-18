@@ -1,0 +1,148 @@
+main {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+}
+
+.card {
+  width: 90%;
+  height: 90%;
+  padding: 15px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  background-color: var(--light-grey);
+}
+
+.card .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.card .top p {
+  font-weight: 700;
+  color: #606060;
+  font-size: clamp(0.9em, 2vw, 1em);
+  text-align: center;
+}
+
+.card .top button.button {
+  font-size: 0.95em;
+  padding: 8px 13px;
+}
+
+.card .top button:active {
+  transform: translateY(5px);
+}
+
+form {
+  width: 100%;
+  height: 160px;
+  border-radius: 5px;
+  border: 2px dashed var(--border-light);
+  font-size: 1em;
+  font-weight: 500;
+  position: relative;
+  background-color: #dfe3f259;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  margin-top: 20px;
+}
+
+form .select {
+  color: var(--turquoise);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+form input {
+  display: none;
+}
+
+form.dragover {
+  border-style: solid;
+  font-size: 1.2em;
+  font-weight: 700;
+  background-color: #606060;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  position: relative;
+  height: auto;
+  margin-top: 20px;
+  max-height: 215px;
+  overflow-y: auto;
+}
+
+.container .image {
+  height: 205px;
+  width: 185px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 7px;
+  margin-right: 7px;
+  background-color: #000000;
+}
+
+.container .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container .image span {
+  position: absolute;
+  top: -4px;
+  right: 5px;
+  cursor: pointer;
+  font-size: 1.3em;
+  color: #fff;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+}
+
+form.step2 {
+  height: 100%;
+  flex-direction: column;
+  border: none;
+  margin-top: 0;
+}
+
+form.step2 textarea {
+  width: 100%;
+  height: 80%;
+  resize: none;
+  margin-top: 2rem;
+  padding: 0.5rem;
+  font-size: 1em;
+  border: 1px solid var(--border-light);
+  outline: none;
+  background-color: transparent;
+}
+
+/* Responsive */
+
+main.phoneOrTablet .card .top p {
+  display: none;
+}
+main.phoneOrTablet .container .image {
+  width: 46%;
+}

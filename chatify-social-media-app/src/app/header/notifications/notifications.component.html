@@ -1,0 +1,27 @@
+<div class="backdrop"></div>
+<div class="modal-wrapper">
+  <main [@scale-animation]>
+    <div class="heading">
+      <h4>Notifications</h4>
+      <i class="fa-solid fa-xmark" (click)="closeNotifications()"></i>
+    </div>
+    <ng-container *ngIf="!notification_number">
+      <p>You don't have any notifications.</p>
+    </ng-container>
+    <ng-container *ngIf="notification_number">
+      <div
+        class="notification"
+        *ngFor="let mess of notifications"
+        (click)="isRead(mess.notification_id)"
+      >
+        <p>
+          {{ mess.notification_text }}
+        </p>
+        <p>
+          <span>{{ mess.notification_date | timeAgo }} ago</span>
+          <span class="red-dot"></span>
+        </p>
+      </div>
+    </ng-container>
+  </main>
+</div>

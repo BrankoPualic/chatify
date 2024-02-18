@@ -1,0 +1,29 @@
+<main
+  [ngClass]="{
+    phoneOrTablet: (isPhoneOrTablet$ | async)
+  }"
+>
+  <section id="welcome">
+    <h1>Welcome to Chatify</h1>
+    <p>
+      Chatify is an innovative social media app designed to connect people from
+      around the world. With Chatify, you can stay connected with friends, share
+      files, and engage in meaningful conversations. Discover new friends,
+      exchange messages, and create lasting connections. Chatify allows you to
+      upload images and videos to share your special moments with your network.
+      <br />By using Chatify, you agree to our <a>Terms of Service</a> and
+      <a>Privacy Policy.</a><br />
+      Please read them carefully before proceeding.
+    </p>
+  </section>
+  <ng-container *ngIf="isSignin">
+    <div class="wrapper">
+      <app-signin (openSignupEmitter)="changeForm($event)"></app-signin>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!isSignin">
+    <div class="wrapper">
+      <app-signup (openSigninEmitter)="changeForm($event)"></app-signup>
+    </div>
+  </ng-container>
+</main>

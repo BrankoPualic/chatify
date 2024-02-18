@@ -1,0 +1,30 @@
+<div class="backdrop"></div>
+<div
+  class="modal-wrapper"
+  [ngClass]="{ phoneOrTablet: (isPhoneOrTablet$ | async) }"
+>
+  <main [@scale-animation] *ngIf="!showImageUploads">
+    <div>
+      <p>Images</p>
+      <div class="ico" (click)="uploadImages()">
+        <i class="fa-regular fa-file-image"></i>
+      </div>
+    </div>
+    <div>
+      <p>Videos</p>
+      <p class="grey">This feature is not currently available.</p>
+      <div class="ico not-active">
+        <i class="fa-solid fa-video"></i>
+      </div>
+    </div>
+    <div class="ico">
+      <i class="fa-solid fa-xmark" (click)="closeUploadModal()"></i>
+    </div>
+  </main>
+  <ng-container *ngIf="showImageUploads">
+    <app-upload-images
+      (goBackEmitter)="closeImageUpload($event)"
+      (closeUploads)="closeUploadModal()"
+    ></app-upload-images>
+  </ng-container>
+</div>

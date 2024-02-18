@@ -1,0 +1,88 @@
+#form p a {
+  cursor: pointer;
+  color: var(--turquoise);
+  text-decoration: underline;
+}
+#form {
+  margin-top: 15.5rem;
+  margin-bottom: 2rem;
+}
+:is(#form, #form form, #form form div) {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+#form h2 {
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+#form form div :is(input, select) {
+  width: 70%;
+  border: 1px solid #000;
+  /* font-size: 1.1em; */
+  font-size: clamp(0.95em, 5vw, 1.1em);
+  background: transparent;
+  padding: 0.25rem;
+  border-radius: 5px;
+}
+#form form div p {
+  width: 70%;
+}
+#form form div {
+  margin: 0.5rem 0 0;
+}
+#form form div.list {
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70%;
+}
+#form form div.list div {
+  width: 45%;
+}
+#form form div.list div select {
+  width: 100%;
+}
+
+#form form div label {
+  /* font-size: 1.1em; */
+  font-size: clamp(0.9em, 3vw, 1.1em);
+  margin-bottom: 0.5rem;
+}
+#form form > input.button {
+  margin: 1rem auto;
+  width: 150px;
+}
+#form form div.select-disabled select {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+#form form div.select-disabled label {
+  opacity: 0.5;
+}
+
+/* Responsive */
+section.phoneOrTablet {
+  margin-top: 0 !important;
+}
+
+section.phoneOrTablet form div :is(input, p) {
+  width: 85% !important;
+}
+section.phoneOrTablet form div {
+  margin: 0.25rem 0 !important;
+}
+section.phoneOrTablet h2 {
+  margin-bottom: 1.1rem !important;
+}
+section.phoneOrTablet form div p.error,
+section.phoneOrTablet > p {
+  font-size: 0.9em;
+}
+section.phoneOrTablet form > input.button {
+  width: 100px !important;
+}
+section.phoneOrTablet form div.list {
+  width: 85% !important;
+}

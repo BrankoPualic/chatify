@@ -1,0 +1,59 @@
+#form p a {
+  cursor: pointer;
+  color: #1f618f;
+  text-decoration: underline;
+}
+:is(#form, #form form, #form form div) {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#form h2 {
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+#form form div :is(input, p) {
+  width: 70%;
+}
+#form form div input {
+  border: 1px solid #000;
+  /* font-size: 1.1em; */
+  font-size: clamp(0.95em, 5vw, 1.1em);
+  background: transparent;
+  padding: 0.25rem;
+  border-radius: 5px;
+}
+#form form div {
+  margin: 0.5rem 0;
+  position: relative;
+}
+#form form div label {
+  /* font-size: 1.1em; */
+  font-size: clamp(0.9em, 3vw, 1.1em);
+  margin-bottom: 0.5rem;
+}
+
+#form form > input.button {
+  margin: 1rem auto;
+  width: 150px;
+}
+
+/* Responsive */
+
+section.phoneOrTablet form div :is(input, p) {
+  width: 85% !important;
+}
+section.phoneOrTablet form div {
+  margin: 0.25rem 0 !important;
+}
+section.phoneOrTablet h2 {
+  margin-bottom: 1.1rem !important;
+}
+section.phoneOrTablet form div p.error,
+section.phoneOrTablet > p {
+  font-size: 0.9em;
+}
+section.phoneOrTablet form > input.button {
+  width: 100px !important;
+}

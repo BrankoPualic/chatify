@@ -1,0 +1,100 @@
+.modal-wrapper {
+  width: 800px;
+}
+main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 4rem;
+}
+.go-back {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+  cursor: pointer;
+}
+form {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0.5rem;
+}
+
+#edit-image {
+  position: relative;
+  width: 75px;
+  height: 75px;
+  border: 2px solid var(--turquoise);
+  color: var(--turquoise);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#edit-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+#edit-image i {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 1.2em;
+  border: 1px solid #fff;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#image-up {
+  display: none;
+}
+
+#edit-name input {
+  width: 250px;
+  outline: none;
+  border: 1px solid #000;
+  padding: 0.25rem 0.5rem;
+}
+
+#edit-desc textarea {
+  resize: none;
+  padding: 0.5rem;
+  font-size: 1em;
+  outline: none;
+  border: 1px solid #000;
+}
+button {
+  width: auto;
+  margin: 1rem 0.5rem 0rem auto;
+}
+
+/* Responsive */
+
+.modal-wrapper.phoneOrTablet {
+  width: 95%;
+}
+
+.modal-wrapper.phoneOrTablet main {
+  padding: 3.5rem 1rem 0.5rem;
+}
