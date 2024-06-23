@@ -115,7 +115,7 @@ GO
 
 USE [Chatify]
 GO
-/****** Object:  Table [dbo].[comment]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Table [dbo].[comment]    Script Date: 6/23/2024 10:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -133,7 +133,7 @@ CREATE TABLE [dbo].[comment](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[comment_love]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Table [dbo].[comment_love]    Script Date: 6/23/2024 10:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -149,7 +149,7 @@ CREATE TABLE [dbo].[comment_love](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[continent]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Table [dbo].[continent]    Script Date: 6/23/2024 10:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -163,7 +163,7 @@ CREATE TABLE [dbo].[continent](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[continent_country]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Table [dbo].[continent_country]    Script Date: 6/23/2024 10:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -178,7 +178,7 @@ CREATE TABLE [dbo].[continent_country](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[country]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Table [dbo].[country]    Script Date: 6/23/2024 10:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -192,7 +192,7 @@ CREATE TABLE [dbo].[country](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[group]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Table [dbo].[group]    Script Date: 6/23/2024 10:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -209,7 +209,7 @@ CREATE TABLE [dbo].[group](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[group_conversation]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Table [dbo].[group_conversation]    Script Date: 6/23/2024 10:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -224,7 +224,7 @@ CREATE TABLE [dbo].[group_conversation](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[group_member]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Table [dbo].[group_member]    Script Date: 6/23/2024 10:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -241,7 +241,7 @@ CREATE TABLE [dbo].[group_member](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[group_message]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Table [dbo].[group_message]    Script Date: 6/23/2024 10:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -258,7 +258,7 @@ CREATE TABLE [dbo].[group_message](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[group_role]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Table [dbo].[group_role]    Script Date: 6/23/2024 10:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -272,7 +272,7 @@ CREATE TABLE [dbo].[group_role](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[love]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Table [dbo].[love]    Script Date: 6/23/2024 10:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -288,7 +288,7 @@ CREATE TABLE [dbo].[love](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[message]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Table [dbo].[message]    Script Date: 6/23/2024 10:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -305,7 +305,7 @@ CREATE TABLE [dbo].[message](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[message_conversation]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Table [dbo].[message_conversation]    Script Date: 6/23/2024 10:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -321,7 +321,7 @@ CREATE TABLE [dbo].[message_conversation](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[notification]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Table [dbo].[notification]    Script Date: 6/23/2024 10:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -338,7 +338,7 @@ CREATE TABLE [dbo].[notification](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[post]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Table [dbo].[post]    Script Date: 6/23/2024 10:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -356,7 +356,7 @@ CREATE TABLE [dbo].[post](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[post_file]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Table [dbo].[post_file]    Script Date: 6/23/2024 10:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -372,7 +372,7 @@ CREATE TABLE [dbo].[post_file](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[report]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Table [dbo].[report]    Script Date: 6/23/2024 10:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -390,7 +390,7 @@ CREATE TABLE [dbo].[report](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[report_reason]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Table [dbo].[report_reason]    Script Date: 6/23/2024 10:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -405,7 +405,7 @@ CREATE TABLE [dbo].[report_reason](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[role]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Table [dbo].[role]    Script Date: 6/23/2024 10:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -419,7 +419,7 @@ CREATE TABLE [dbo].[role](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[user]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Table [dbo].[user]    Script Date: 6/23/2024 10:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -441,7 +441,7 @@ CREATE TABLE [dbo].[user](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[user_follower]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Table [dbo].[user_follower]    Script Date: 6/23/2024 10:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -457,7 +457,7 @@ CREATE TABLE [dbo].[user_follower](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[user_login]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Table [dbo].[user_login]    Script Date: 6/23/2024 10:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1279,8 +1279,6 @@ SET IDENTITY_INSERT [dbo].[group_message] ON
 GO
 INSERT [dbo].[group_message] ([message_id], [sender_id], [group_id], [message_text], [message_date]) VALUES (1, 6, 1, N'Ja sam pravi admin!!', CAST(N'2023-08-12T21:02:57.473' AS DateTime))
 GO
-INSERT [dbo].[group_message] ([message_id], [sender_id], [group_id], [message_text], [message_date]) VALUES (2, 9, 1, N'Tisina tamo BRE', CAST(N'2023-08-12T21:11:01.050' AS DateTime))
-GO
 INSERT [dbo].[group_message] ([message_id], [sender_id], [group_id], [message_text], [message_date]) VALUES (3, 9, 1, N'ja sam glavni stab', CAST(N'2023-08-12T21:13:13.910' AS DateTime))
 GO
 INSERT [dbo].[group_message] ([message_id], [sender_id], [group_id], [message_text], [message_date]) VALUES (4, 6, 1, N'postavi me za admina', CAST(N'2023-08-12T21:14:40.640' AS DateTime))
@@ -1294,8 +1292,6 @@ GO
 INSERT [dbo].[group_message] ([message_id], [sender_id], [group_id], [message_text], [message_date]) VALUES (8, 5, 1, N'moree', CAST(N'2023-08-12T21:39:17.503' AS DateTime))
 GO
 INSERT [dbo].[group_message] ([message_id], [sender_id], [group_id], [message_text], [message_date]) VALUES (9, 9, 1, N'Zvacu darkica ako moze', CAST(N'2023-08-13T16:52:32.847' AS DateTime))
-GO
-INSERT [dbo].[group_message] ([message_id], [sender_id], [group_id], [message_text], [message_date]) VALUES (10, 5, 1, N'mrnjaooooo', CAST(N'2023-08-13T16:56:43.483' AS DateTime))
 GO
 SET IDENTITY_INSERT [dbo].[group_message] OFF
 GO
@@ -1332,23 +1328,13 @@ INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text
 GO
 INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (11, 5, 9, N'more', CAST(N'2023-08-08T22:59:46.253' AS DateTime))
 GO
-INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (12, 9, 5, N'Hocemo posle na nargilicu', CAST(N'2023-08-08T23:01:29.953' AS DateTime))
-GO
 INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (13, 5, 9, N'ajviecemo', CAST(N'2023-08-08T23:01:45.710' AS DateTime))
 GO
 INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (14, 9, 5, N'aj samo ponesi koju kintu ja nemam', CAST(N'2023-08-08T23:02:14.327' AS DateTime))
 GO
 INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (15, 5, 9, N'Vazi', CAST(N'2023-08-08T23:02:40.510' AS DateTime))
 GO
-INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (16, 5, 9, N'Oces i brata da ti napravim?!', CAST(N'2023-08-08T23:04:17.963' AS DateTime))
-GO
-INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (17, 9, 5, N'Opa tako igramo a', CAST(N'2023-08-08T23:16:13.880' AS DateTime))
-GO
 INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (18, 5, 9, N'tako', CAST(N'2023-08-08T23:17:44.813' AS DateTime))
-GO
-INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (19, 9, 5, N'Majmuneee', CAST(N'2023-08-08T23:18:46.073' AS DateTime))
-GO
-INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (20, 5, 9, N'Majmuncinoo', CAST(N'2023-08-09T18:56:05.837' AS DateTime))
 GO
 INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (21, 9, 5, N'alo brate sta se desava???', CAST(N'2023-08-12T17:14:52.100' AS DateTime))
 GO
@@ -1356,25 +1342,13 @@ INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text
 GO
 INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (23, 9, 5, N'Kako to brate', CAST(N'2023-08-12T17:18:04.223' AS DateTime))
 GO
-INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (24, 9, 5, N'stvarno si poremecen', CAST(N'2023-08-12T17:18:11.183' AS DateTime))
-GO
-INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (25, 5, 9, N'PAZI KAKO PRICAS DA NEB DOSAO TAMO DA TE ISPRESAVIJAM', CAST(N'2023-08-12T17:18:40.827' AS DateTime))
-GO
 INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (26, 9, 5, N'bOBI?', CAST(N'2023-08-12T17:18:54.760' AS DateTime))
 GO
 INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (27, 5, 9, N'E', CAST(N'2023-08-12T17:18:57.537' AS DateTime))
 GO
-INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (28, 9, 5, N'MAJMUNCINOIOOOO', CAST(N'2023-08-12T17:19:11.063' AS DateTime))
-GO
 INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (29, 9, 5, N'HAHAHHA', CAST(N'2023-08-12T17:19:16.730' AS DateTime))
 GO
-INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (30, 5, 9, N'e idiote', CAST(N'2023-08-12T17:49:32.967' AS DateTime))
-GO
-INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (31, 9, 5, N'sta bre bilo bre', CAST(N'2023-08-12T17:49:46.623' AS DateTime))
-GO
 INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (32, 9, 5, N'alo be', CAST(N'2023-08-12T18:07:54.560' AS DateTime))
-GO
-INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (33, 9, 5, N'sto gleda a ne prica majmunko', CAST(N'2023-08-12T18:09:03.830' AS DateTime))
 GO
 INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (34, 9, 5, N'majstore', CAST(N'2023-08-12T18:31:59.617' AS DateTime))
 GO
@@ -1385,12 +1359,6 @@ GO
 INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (37, 5, 9, N'Idemo najjace leto ikada matori', CAST(N'2023-08-13T16:56:27.280' AS DateTime))
 GO
 INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (1020, 9, 6, N'Bratic sta se desava?', CAST(N'2023-08-20T15:28:26.473' AS DateTime))
-GO
-INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (1021, 6, 9, N'evo smaranje morao je izbacit onog govnara bobija', CAST(N'2023-08-20T17:04:21.840' AS DateTime))
-GO
-INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (1022, 6, 9, N'ipak je mali seronja', CAST(N'2023-08-20T17:04:28.157' AS DateTime))
-GO
-INSERT [dbo].[message] ([message_id], [sender_id], [recipient_id], [message_text], [message_date]) VALUES (1023, 9, 6, N'Zine u 16', CAST(N'2023-09-24T10:15:59.997' AS DateTime))
 GO
 SET IDENTITY_INSERT [dbo].[message] OFF
 GO
@@ -1638,11 +1606,17 @@ INSERT [dbo].[user_login] ([login_id], [user_id], [login_date]) VALUES (1041, 6,
 GO
 INSERT [dbo].[user_login] ([login_id], [user_id], [login_date]) VALUES (1042, 6, CAST(N'2023-09-24T10:29:39.257' AS DateTime))
 GO
+INSERT [dbo].[user_login] ([login_id], [user_id], [login_date]) VALUES (1043, 12, CAST(N'2024-06-23T22:06:41.077' AS DateTime))
+GO
+INSERT [dbo].[user_login] ([login_id], [user_id], [login_date]) VALUES (1044, 5, CAST(N'2024-06-23T22:09:12.250' AS DateTime))
+GO
+INSERT [dbo].[user_login] ([login_id], [user_id], [login_date]) VALUES (1045, 9, CAST(N'2024-06-23T22:13:22.093' AS DateTime))
+GO
 SET IDENTITY_INSERT [dbo].[user_login] OFF
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [unique_country]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Index [unique_country]    Script Date: 6/23/2024 10:24:01 PM ******/
 ALTER TABLE [dbo].[country] ADD  CONSTRAINT [unique_country] UNIQUE NONCLUSTERED 
 (
 	[country_name] ASC
@@ -1650,7 +1624,7 @@ ALTER TABLE [dbo].[country] ADD  CONSTRAINT [unique_country] UNIQUE NONCLUSTERED
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [Unique file name]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Index [Unique file name]    Script Date: 6/23/2024 10:24:01 PM ******/
 ALTER TABLE [dbo].[post_file] ADD  CONSTRAINT [Unique file name] UNIQUE NONCLUSTERED 
 (
 	[file_src] ASC
@@ -1658,7 +1632,7 @@ ALTER TABLE [dbo].[post_file] ADD  CONSTRAINT [Unique file name] UNIQUE NONCLUST
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [email]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Index [email]    Script Date: 6/23/2024 10:24:01 PM ******/
 ALTER TABLE [dbo].[user] ADD  CONSTRAINT [email] UNIQUE NONCLUSTERED 
 (
 	[email] ASC
@@ -1833,7 +1807,7 @@ REFERENCES [dbo].[user] ([user_id])
 GO
 ALTER TABLE [dbo].[user_login] CHECK CONSTRAINT [FK_user_login_user]
 GO
-/****** Object:  Trigger [dbo].[tr_UpdatePostCommentsCount]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Trigger [dbo].[tr_UpdatePostCommentsCount]    Script Date: 6/23/2024 10:24:01 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1867,7 +1841,7 @@ END;
 GO
 ALTER TABLE [dbo].[comment] ENABLE TRIGGER [tr_UpdatePostCommentsCount]
 GO
-/****** Object:  Trigger [dbo].[tr_UpdateCommentLikesCount]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Trigger [dbo].[tr_UpdateCommentLikesCount]    Script Date: 6/23/2024 10:24:02 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1894,7 +1868,7 @@ END
 GO
 ALTER TABLE [dbo].[comment_love] ENABLE TRIGGER [tr_UpdateCommentLikesCount]
 GO
-/****** Object:  Trigger [dbo].[tr_InsertGroupMessageAndUpdateConversation]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Trigger [dbo].[tr_InsertGroupMessageAndUpdateConversation]    Script Date: 6/23/2024 10:24:02 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1958,7 +1932,7 @@ END;
 GO
 ALTER TABLE [dbo].[group_message] ENABLE TRIGGER [tr_InsertGroupMessageAndUpdateConversation]
 GO
-/****** Object:  Trigger [dbo].[tr_UpdatePostLikesCount]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Trigger [dbo].[tr_UpdatePostLikesCount]    Script Date: 6/23/2024 10:24:02 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1985,7 +1959,7 @@ END;
 GO
 ALTER TABLE [dbo].[love] ENABLE TRIGGER [tr_UpdatePostLikesCount]
 GO
-/****** Object:  Trigger [dbo].[tr_InsertMessageAndUpdateConversation]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Trigger [dbo].[tr_InsertMessageAndUpdateConversation]    Script Date: 6/23/2024 10:24:02 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2050,7 +2024,7 @@ END;
 GO
 ALTER TABLE [dbo].[message] ENABLE TRIGGER [tr_InsertMessageAndUpdateConversation]
 GO
-/****** Object:  Trigger [dbo].[tr_InsertUserFollowerSendNotification]    Script Date: 6/2/2024 10:00:37 AM ******/
+/****** Object:  Trigger [dbo].[tr_InsertUserFollowerSendNotification]    Script Date: 6/23/2024 10:24:02 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
